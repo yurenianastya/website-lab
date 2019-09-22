@@ -8,15 +8,8 @@
     src: url(fonts/linux_libertine-1/LinLibertine_DR.ttf);
 }
 
-.navtop {
-    margin-right:5%;
-    margin-left:5%; 
-    background-color: rgb(161, 51, 18);
-}
-
 li {
     padding: 10px 16px;
-    list-style-type: none;
     float: left;
 }
 
@@ -28,9 +21,9 @@ a {
 }
 
 ul {
-    overflow: hidden;
-    margin: 0%;
-    padding: 0%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
@@ -47,7 +40,6 @@ h1 {
 
 .main-pic {
     width: 100%;
-    z-index: 1;
 }
 
 .about-singer {
@@ -69,32 +61,31 @@ h1 {
     font-size: 40px;
 }
 
+.dropdown {
+    position: relative;
+    display: block;
+}
+
 .dropdown-content {
     display: none;
     position: absolute;
-    padding-left: 0;
+    background-color: rgb(161, 51, 18);
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-.dropdown-content li{
-    display: list-item;
-    position: relative;
-    z-index: 2;
-    width: 100px;
+    z-index: 1;
 }
 
-.dropdown-content a {
-    color: rgb(197, 187, 41);
+.dropdown-content li {
+    float: none;
+}
+
+.dropdown-content li a {
     text-decoration: none;
     display: block;
 }
 
-.drpbutton li:hover .dropdown-content {
-    position: relative;
+
+ul li:hover ul {
     display: block;
-    width: 100%;
+    position: fixed;
+    z-index: 1;
 }
-
-
-
-
-  
