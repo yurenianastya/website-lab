@@ -1,11 +1,6 @@
 @font-face {
     font-family: youth-family;
     src: url(fonts/youth_power/Youth_Power.ttf);
-  }
-
-@font-face {
-    font-family: linux-libertine;
-    src: url(fonts/linux_libertine-1/LinLibertine_DR.ttf);
 }
 
 li {
@@ -15,9 +10,9 @@ li {
 
 a {
     text-decoration: none;
-    font-family: youth-family;
-    font-size: 40px;  
-    color: rgb(209, 195, 0);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 175%;  
+    color: white;
 }
 
 ul {
@@ -30,7 +25,7 @@ h1 {
     margin-block: 60px 60px;
     font-family: youth-family;
     font-size: 60px;
-    color: rgb(197, 187, 41);
+    color: black;
 }
 
 .logo {
@@ -43,11 +38,12 @@ h1 {
 }
 
 .about-singer {
+    background: gray;   
     margin-left: 15%;
     margin-right: 15%;
-    font-family: linux-libertine;
-    font-size: 30px;
-    color: rgb(197, 187, 41);
+    font-family: 'Roboto mono', monospace;
+    font-size: 153%;
+    color: white;
 }
 
 .bottom {
@@ -55,8 +51,8 @@ h1 {
     width: 97%; 
     overflow: hidden;
     list-style-type: none;
-    background-color: rgb(161, 51, 18);
-    color: rgb(197, 187, 41);
+    background-color: black;
+    color: white;
     font-family: youth-family;
     font-size: 40px;
 }
@@ -69,8 +65,8 @@ h1 {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: rgb(161, 51, 18);
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: black;
+    box-shadow: 0px 8px 16px 0px white;
     z-index: 1;
 }
 
