@@ -1,3 +1,8 @@
+@font-face {
+    font-family: youth-family;
+    src: url(fonts/youth_power/Youth_Power.ttf);
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -22,9 +27,25 @@ ul {
 }
 
 .topmenu img {
-
     position: absolute;
     margin: 0;
+}
+
+.bottom {
+    margin-block: 0%;
+    width: 97%;
+    overflow: hidden;
+    background-color: black;
+    color: white;
+    font-family: youth-family;
+    font-size: 200%;
+}
+
+.bottom li {
+    float: right;
+    padding: 10px 16px;
+    color: white;
+    background-color: black;
 }
 
 table {
