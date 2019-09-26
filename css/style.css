@@ -3,6 +3,18 @@
     src: url(fonts/youth_power/Youth_Power.ttf);
 }
 
+@keyframes pulse {
+    0% {
+        background-color: black;
+      }
+      50% {
+        background-color: gray;
+      }
+      100% {
+          background-color: black;
+      }
+}
+
 li {
     padding: 10px 16px;
     float: left;
@@ -29,6 +41,7 @@ h1 {
 }
 
 nav ul li:hover {
+    animation: pulse 2s infinite;
     background-color: gray;
 }
 
