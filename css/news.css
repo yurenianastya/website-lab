@@ -24,11 +24,11 @@
 }
 
 @keyframes slide {
-    100% {right: 0}
+    100% {right: 0 }
 }
 
 .logo {
-    animation: reveal 2s linear 0s 1 alternate;
+    animation: reveal 1s linear 0s 1 alternate;
 }
 
 .topmenu {
@@ -58,7 +58,7 @@
 }
 
 .album {
-    position: absolute;
+    position: fixed;
     top: 20px;
     right: -100px;
     width: 100px;
