@@ -4,16 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Main menu</title>
+    <title>Tour schedule</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
-<body background="pics/background1.jpg">
+<body background="../pics/background1.jpg">
     <header>
-        <div class="container fixed-top">
+        <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark border border-white" style="background-color:#888a8c">
-                <li class="navbar-brand"> <img src='pics/logo.png'> </li>
+                <li class="navbar-brand"> <img src='../pics/logo.png'> </li>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -22,7 +22,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Main</a>
+                            <a class="nav-link" href="file:///home/nastya/webprojects/website_lab/index.html">Main</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link"
@@ -33,61 +33,63 @@
                                 aria-haspopup="true" aria-expanded="false">For fans</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#">Fan club</a>
-                                <a class="dropdown-item"
-                                    href="file:///home/nastya/webprojects/website_lab/band/tourschedule.html">Tour
-                                    Schedule</a>
+                                <a class="dropdown-item" href="#">Tour Schedule</a>
                                 <a class="dropdown-item" href="#">Lyrics</a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active"
-                                href="file:///home/nastya/webprojects/website_lab/band/fansappeal.html">Fans appeal</a>
+                            <a class="nav-link active" href="file:///home/nastya/webprojects/website_lab/band/fansappeal.html">Fans appeal</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active"
-                                href="file:///home/nastya/webprojects/website_lab/band/concertvenue.html">Concert
-                                Venue</a>
+                            <a class="nav-link active" href="file:///home/nastya/webprojects/website_lab/band/concertvenue.html">Concert Venue</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" 
-                            href="file:///home/nastya/webprojects/website_lab/band/adminpage.html">Admin</a>
+                            <a class="nav-link active" href="file:///home/nastya/webprojects/website_lab/band/adminpage.html">Admin</a>
                         </li>
                     </ul>
                 </div>
             </nav>
         </div>
     </header>
-    <main class="text-center text-light">
-        <img class="w-80" src="pics/nbhd_pic.jpg">
-        <h1>About group</h1>
+    <main class="align-items-end" style="bottom: 10%">
+        <hr>
         <div class="row d-flex justify-content-center">
-            <p class="col-10 lead border border-white" style="background-color:rgb(31, 31, 31)">
-                The Neighbourhood (sometimes rendered as "THE NBHD") is an American rock band formed
-                in Newbury Park, California, in 2011. The band is composed of vocalist Jesse Rutherford,
-                guitarists Jeremy Freedman and Zach Abels, bassist Mikey Margott, and drummer Brandon
-                Alexander Fried. After releasing two EPs, I'm Sorry... and Thank You, The Neighbourhood
-                released its first full-length album I Love You. on April 23, 2013, via Columbia Records.
-                The same year, the EP "The Love Collection" was released; and in November 2014, a mixtape
-                titled #000000 & #FFFFFF. A second album, Wiped Out! was released on October 30, 2015. On
-                March 9, 2018 a self-titled third studio album came out, preceded by the release of two EPs:
-                Hard on September 22, 2017, which briefly charted on the Billboard 200, and To Imagine on
-                January 12, 2018
-            </p>
+            <img src="../pics/tour.jpg">
         </div>
-        <h1>Best album</h1>
-        <img src="pics/album.jpg">
-        <div class="row d-flex justify-content-center">
-            <p class="col-10 lead border border-white" style="background-color:rgb(31, 31, 31)">
-                Wiped Out! is the second studio album by American alternative band The Neighbourhood.
-                It was released on October 30, 2015 by Columbia Records.
-                Wiped Out is the sophomore album from Californian indie and alternative band The
-                Neighbourhood, a follow up from their remarkable 2013 debut, I Love You.. The band
-                told Zane Lowe of Beats 1 Radio that it took them approximately eight months to
-                complete this effort. The album received generally mixed reviews.
-            </p>
-        </div>
+        <hr>
+        <table class="table table-dark table-striped table-bordered table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Date of performance</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Performance time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>24/10/2019</td>
+                    <td>Berlin</td>
+                    <td>20.00</td>
+                </tr>
+                <tr>
+                    <td>16/02/2020</td>
+                    <td>Kyiv</td>
+                    <td>21.00</td>
+                </tr>
+                <tr>
+                    <td>15/03/2020</td>
+                    <td>Paris</td>
+                    <td>20.00</td>
+                </tr>
+                <tr>
+                    <td>05/06/2020</td>
+                    <td>Stockholm</td>
+                    <td>20.00</td>
+                </tr>
+            </tbody>
+        </table>
     </main>
-    <footer>
+    <footer class="align-items-end">
         <div class="container">
             <p class="text-center text-light border border-white" style="background-color:rgb(31, 31, 31)">Made by
                 Nastya Yurenia | Terms and Conditions | All rights reserved (c)</p>

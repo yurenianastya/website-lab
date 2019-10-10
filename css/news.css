@@ -27,6 +27,12 @@
     100% {right: 0 }
 }
 
+body {
+    background-image: url("../pics/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 .logo {
     animation: reveal 1s linear 0s 1 alternate;
 }
