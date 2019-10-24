@@ -2,9 +2,8 @@ CACHE MANIFEST
 
 CACHE:
 index.html
-css/error.css
 pics/background1.jpg
 pics/nbhd_pic.jpg
 
 FALLBACK:   
-/band/ /error.html
+/ error.html
