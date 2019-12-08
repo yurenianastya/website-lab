@@ -1,66 +1,97 @@
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
+    let allComments = [];
+
     document.getElementById("send").addEventListener("click", addComment);
-    document.getElementById("send").addEventListener("click", clean);
-});
+    window.addEventListener("online", function (event) {
+        provider.get("comments", (comments) => {
+            if (comments) {
+                allComments = comments;
+            }
+            sendComments(allComments);
+            getComments(allComments);
+            provider.remove("comments")
+            allComments = [];
+        });
+    });
 
-function addComment () {
-    let input = (document.getElementById("input-area")).value;
-    let text = input.replace(/ /g, '');
-    if (text === '') {
-        alert('This one is FULL OF NOTHING');
-        return false;
+    provider.get("comments", (comments) => {
+        if (comments) {
+            allComments = comments;
+        }
+    });
+    if (isOnline()) {
+        sendComments(allComments);
+        getComments(allComments);
+        provider.remove("comments");
+        allComments = [];
     }
-    let new_comment_section = document.createElement('div');
-    let new_comment_text= document.createElement('p');
-    let new_comment_author= document.createElement('p');
 
-    new_comment_section.className = 'text-center text-light row d-flex justify-content-center';
-    new_comment_text.className = 'lead border border-white col-6';
-    new_comment_author.className = 'lead border border-white col-3';
+    function addComment() {
+        let text = document.getElementById("input-area").value;
+        let username = getUsername();
+        const time = new Date();
+        let usertext = document.getElementById("input-area").value;
+        let checktext = usertext.replace(/ /g, '');
+        if (checktext === '') {
+            alert("well, that's bad, it's empty!");
+            clean();
+            return false;
+        }
+        if (isOnline()) {
+            getComments(username, time, text);
+            alert("Successfully sent to Asgore's server");
+        } else {
+            allComments.push({user: username, time: time, comment: text});
+            provider.add("comments", allComments);
+            alert("Saved to underground storage");
+        }
+        clean();
+    }
 
-    new_comment_text.style.cssText = 'background-color:rgb(31, 31, 31)';
-    new_comment_author.style.cssText = 'background-color:rgb(31, 31, 31)';
+    function getComment(name, time, text) {
+        let divRow = document.createElement("div");
+        divRow.className = "row d-flex justify-content-center";
 
-    
-    let pName = document.createElement('p');
-    pName.innerHTML = currentName();
-    let pTime = document.createElement('p');
-    pTime.innerHTML = currentTime();
-    let pDate = document.createElement('p');
-    pDate.innerHTML = currentDate();
+        let commentInfo = document.createElement("p");
+        commentInfo.className = "lead border border-white col-3";
+        commentInfo.style.cssText = "margin-bottom:0; background-color:rgb(31, 31, 31)";
+        commentInfo.innerHTML = name + "<br>" + time.getHours() + ":" + time.getMinutes() + "<br>" + time.getDate() + "/" + (time.getMonth() + 1) + "/" + time.getFullYear() + "<hr>";
+        
+        let commentText = document.createElement("div");
+        commentText.className = "lead border border-white col-6";
+        commentText.style.cssText = "background-color:rgb(31, 31, 31)";
+        commentText.innerHTML = text;
 
-    let pText = document.createElement('p');
-    pText.textContent = input;
-    let hr = document.createElement('hr');
+        divRow.appendChild(commentInfo);
+        divRow.appendChild(commentText);
+        let block = document.getElementById("comments-section");
+        block.appendChild(divRow);
+    }
 
-    let comments = document.getElementById('comments-section');
-    comments.appendChild(new_comment_section);
-    new_comment_section.appendChild(new_comment_author);
-    new_comment_section.appendChild(new_comment_text);
-    new_comment_text.appendChild(pText);
-    new_comment_author.appendChild(pName);
-    new_comment_author.appendChild(pTime);
-    new_comment_author.appendChild(pDate); 
-    comments.appendChild(hr);
+    function clean() {
+        document.getElementById("input-area").placeholder = "hyeh hyeh hyeh?";
+        document.getElementById("input-area").value = '';
+    }
 
-}
+    function getUsername() {
+        let name = prompt("Howdy! What's your username?", "Fallen child");
+        check = name.replace(/ /g, '');
+        if (check === '') {
+            return "eh, you need to username yourself."
+        } else {
+            return name;
+        }
+    }
 
-function clean() {
-    document.getElementsByClassName("form-control").placeholder = "Dare to write an appeal...?";
-    document.getElementsByClassName("form-control").value = '';
-}
+    function getComments(allComments) {
+        allComments.forEach(function (comment) {
+            getComment(comment.user, new Date(comment.time), comment.comment)
+        });
+    }
 
-function currentTime() {
-    let now = new Date();
-    return now.getHours() + ":" + now.getMinutes();
-}
-
-function currentDate() {
-    let now = new Date();
-    let month = 1 + now.getMonth();
-    return now.getDate() + "/" + month + "/" + now.getFullYear();
-}
-
-function currentName() {
-    return prompt("You there! Name yourself!", "");
-}
+    function sendComments(allComments) {
+        if (allComments.length) {
+            alert("Successfully sent!")
+        }
+    }
+});

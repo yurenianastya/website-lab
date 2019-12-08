@@ -1,0 +1,27 @@
+{
+  "name": "website_lab",
+  "version": "1.0.0",
+  "description": "Website lab for IoT course",
+  "main": "server/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yurenianastya/website_lab.git"
+  },
+  "keywords": [
+    "api",
+    "restful",
+    "json"
+  ],
+  "author": "Nastya Yurenia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yurenianastya/website_lab/issues"
+  },
+  "homepage": "https://github.com/yurenianastya/website_lab#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

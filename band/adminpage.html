@@ -25,27 +25,23 @@
                             <a class="nav-link" href="index.html">Main</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link"
-                                href="news_updated.html">News</a>
+                            <a class="nav-link" href="news_updated.html">News</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">For fans</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#">Fan club</a>
-                                <a class="dropdown-item"
-                                    href="tourschedule.html">Tour
+                                <a class="dropdown-item" href="tourschedule.html">Tour
                                     Schedule</a>
                                 <a class="dropdown-item" href="#">Lyrics</a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active"
-                                href="fansappeal.html">Fans appeal</a>
+                            <a class="nav-link active" href="fansappeal.html">Fans appeal</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active"
-                                href="concertvenue.html">Concert
+                            <a class="nav-link active" href="concertvenue.html">Concert
                                 Venue</a>
                         </li>
                         <li class="nav-item">
@@ -57,19 +53,28 @@
         </div>
     </header>
     <main class="text-center">
-        <button type="button" class="btn btn-primary btn-lg">Add image</button>
-        <img src="../pics/deadimage.png">
+        <hr>
+        <img id="news-img" src="../pics/album.jpg"><br>
         <hr>
         <div class="row d-flex justify-content-center">
-            <div class="col-2 input-group mb-3">
-                <input type="text" id="newsTitle" class="form-control" placeholder="News title" aria-label="Recipient's username"
-                    aria-describedby="basic-addon2">
+            <button id="send-img" type="button" class="btn btn-primary col-3">Upload image</button>
+            <div class="col-3 input-group">
+                <input id="news-title" type="text" class="form-control" placeholder="News title"
+                    aria-label="Recipient's username" aria-describedby="basic-addon2">
                 <div class="input-group-append">
-                    <button class="btn btn-primary btn-lg" id="send" type="button">Send</button>
+                    <button class="btn btn-primary btn-lg" id="send-news" type="button">Send</button>
                 </div>
             </div>
-            <textarea class="col-8 form-control" id="newsBody" placeholder="News body..." id="exampleFormControlTextarea1" rows="3">
-                    </textarea>
+        </div>
+        <hr>
+        <form class="row d-flex justify-content-center">
+            <input id="input-image" type="file" name="new-image" accept="image/*">
+        </form>
+        <hr>
+        <div class="row d-flex justify-content-center">
+            <textarea id="news-body" class="col-8 form-control" placeholder="News body..."
+                id="exampleFormControlTextarea1" rows="3">
+            </textarea>
         </div>
         <hr>
     </main>
@@ -79,6 +84,9 @@
                 Nastya Yurenia | Terms and Conditions | All rights reserved (c)</p>
         </div>
     </footer>
+    <script src="../js/news.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/adminpage.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -88,5 +96,4 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script src="../js/adminpage.js"></script>
 </body>
