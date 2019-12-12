@@ -66,7 +66,7 @@ class IndexedDBProvider {
     }
 }
 
-let useLocalStorage = true;
+let useLocalStorage = false;
 
 class Provider {
     constructor() {

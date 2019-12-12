@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (news) {
                 allNews = news;
             }
-            sendNewsToServer(allNews);
+            sendAllNews(allNews);
             provider.remove("news");
             allNews = [];
         });
@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (bodytext !== '' && titletext !== '') {
             if (isOnline()) {
                 alert("Successfully sent to Asgore's server!");
+                sendNewsToServer(uploadedimg, title, body);
             } else {
                 allNews.push({img: uploadedimg, title: title, body: body });
                 provider.add("news", allNews);
@@ -57,9 +58,20 @@ document.addEventListener("DOMContentLoaded", function () {
         return window.navigator.onLine;
     }
 
-    function sendNewsToServer(allNews) {
-        if (allNews.length) {
-            alert("Successfully set to underground server!")
+    function sendNewsToServer(img, title, body) {
+        fetch("/news", {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({img: img, title: title, body: body}),
+        })
+            .catch(error => console.error("Cannot fetch data:", error));
+    }
+    
+    function sendAllNews(allNews) {
+        for (let i = 0; i < allNews.length; i++) {
+            sendNewsToServer(allNews[i].img, allNews[i].title, allNews[i].body)
         }
     }
 });

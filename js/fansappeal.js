@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
             if (comments) {
                 allComments = comments;
             }
-            sendComments(allComments);
-            getComments(allComments);
+            sendAllComments(allComments);
+            getAllComments(allComments);
             provider.remove("comments")
             allComments = [];
         });
@@ -20,10 +20,23 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
     if (isOnline()) {
-        sendComments(allComments);
-        getComments(allComments);
+        sendAllComments(allComments);
         provider.remove("comments");
         allComments = [];
+
+        let req = new XMLHttpRequest();
+        req.open("GET", "/comments", true);
+        req.send();
+        req.onreadystatechange = function () {
+            if (req.readyState === XMLHttpRequest.DONE) {
+                if (req.status != 200) {
+                    console.log("bad request");
+                } else {
+                    let data = JSON.parse(req.responseText);
+                    getAllComments(data);
+                }
+            }
+        };
     }
 
     function addComment() {
@@ -38,7 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
             return false;
         }
         if (isOnline()) {
-            getComments(username, time, text);
+            sendComment(username, time, text);
+            getComment(username, time, text);
             alert("Successfully sent to Asgore's server");
         } else {
             allComments.push({user: username, time: time, comment: text});
@@ -83,15 +97,26 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    function getComments(allComments) {
-        allComments.forEach(function (comment) {
-            getComment(comment.user, new Date(comment.time), comment.comment)
-        });
+    function sendComment(name, time, text) {
+        fetch("/comments", {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({name: name, time: time, text: text}),
+        })
+            .catch(error => console.error("Cannot fetch data:", error));
     }
 
-    function sendComments(allComments) {
-        if (allComments.length) {
-            alert("Successfully sent!")
+    function getAllComments(allAppeals) {
+        for (let i = 0; i < allAppeals.length; i++) {
+            getComment(allAppeals[i].name, new Date(allAppeals[i].time), allAppeals[i].text)
+        }
+    }
+
+    function sendAllComments(allComments) {
+        for (let i = 0; i < allComments.length; i++) {
+            sendComment(allComments[i].name, new Date(allComments[i].time), allComments[i].text)
         }
     }
 });
